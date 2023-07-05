@@ -10,12 +10,8 @@ test(`Load URL and click on parent frame`, async ({page})=>{
     const iframelocator = page.frameLocator('#parent_iframe');
     await iframelocator.getByRole('button').click();
 
+   
     
-    await page.frameLocator('#parent_iframe').getByRole('button').click();
-    
-    
-    let text = await page.frameLocator('#parent_iframe').getByRole('paragraph').innerText();
-    await console.log(text);
 
     await expect(page.frameLocator('#parent_iframe').getByRole('paragraph')).toHaveText('Hooray..! You clicked the button from iframe 1',{useInnerText: true});
 
